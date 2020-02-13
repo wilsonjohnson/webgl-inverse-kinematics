@@ -437,7 +437,7 @@ vec4 PaintBoid( vec2 uv, Boid b ) {
   vec2 vel = normalize(b.velocity) * 20.;
   vec2 front = vel + b.position;
   vec2 point = b.position;
-  float dist = 2.;
+  float dist = 1.5;
   vec2 proj = project( front, point, uv );
   vec2 inside = proj - point;
   if (

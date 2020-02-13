@@ -325,6 +325,18 @@ const boid_manager = new BoidManager(
 
 const USE_MANAGER = true;
 let mouse = vec2.fromValues( gl.canvas.width/2, gl.canvas.height/2 );
+
+
+function update_segments( vec: vec2, timestamp = 0, frametime = 0 ) {
+  segments[segments.length - 1].slide_to( vec, timestamp, frametime );
+  for ( let i = segments.length - 1; i > 0; i-- ){
+    segments[i-1].follow(segments[i], timestamp, frametime );
+  }
+}
+
+update_segments(mouse);
+update_segments( vec2.add( vec2.create(), mouse, vec2.random(vec2.create()) ) );
+
 canvas.addEventListener('mousemove', ({x,y}) => {
   mouse = vec2.fromValues( x, y );
 });
