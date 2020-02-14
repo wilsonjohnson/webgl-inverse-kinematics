@@ -308,7 +308,7 @@ function type2(num = 1000) {
 
 // type_rand(10, 10);
 // type1();
-type2(100);
+type2(10);
 
 
 let frametime = 0;
